@@ -26,16 +26,36 @@ Bu proje, **TEKNOFEST 2025 Psikolojide Teknolojik Uygulamalar Yarışması** kap
 *   **Digital Therapeutics (DTx):** Bilişsel becerilerin geliştirilmesine yardımcı olan interaktif modüller.
 
 ### 3.  Bilimsel Ölçüm Laboratuvarı
-*   **Data Analytics Pipeline:** Psikometrik verilerin yüksek doğlukla işlenmesi.
+*   **Data Analytics Pipeline:** Psikometrik verilerin yüksek doğrulukla işlenmesi.
 *   **Modern Değerlendirme Metrikleri:** Geleneksel yöntemlerin dijital ikizleri.
 
 ---
 
 ##  Technology Stack
-*   **Core Logic:** [Specify Language, e.g., Python / Node.js]
+*   **Core Logic:** Python 3.10+
 *   **AI/ML Frameworks:** Scikit-learn, TensorFlow, PyTorch
 *   **Interface:** Premium Glassmorphism UI
 *   **Database:** High-security psychometric data storage
+
+---
+
+##  Repository Structure
+`ash
+  configs/          # Configuration files (YAML, JSON)
+  data/             # Datasets & Psychometric raw data
+  docs/             # Research papers & Documentation
+  src/              # Source code
+     analysis/     # Psychology data analysis
+     models/       # AI/ML Model implementations
+     utils/        # Common utilities
+     main.py       # Main Hub entry point
+  .gitignore        # Environment ignore rules
+  CHANGELOG.md      # Version tracking
+  CONTRIBUTING.md   # Guidelines
+  LICENSE           # MIT License
+  requirements.txt  # Core dependencies
+  README.md         # This Command Center
+`
 
 ---
 
