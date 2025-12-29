@@ -83,4 +83,10 @@ Bu proje **MIT Lisansı** altında lisanslanmıştır. Katkıda bulunmak isterse
 
 ---
 
-> 'Technology is best when it brings people together and heals the mind.' 
+> 'Technology is best when it brings people together and heals the mind
+
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Powered%20By-TEKNOFEST-red?style=for-the-badge&logo=rocket&logoColor=white" alt="TEKNOFEST Support">
+</p>
+
