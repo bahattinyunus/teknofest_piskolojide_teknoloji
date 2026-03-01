@@ -1,0 +1,9 @@
+2026-03-01 13:13:20 | WARNING  | ews | EWS result | Risk: KR¦T¦K | Score: 0.900
+.2026-03-01 13:13:20 | WARNING  | ews | EWS result | Risk: D▄Ì▄K | Score: 0.052
+.2026-03-01 13:13:20 | INFO     | resilience | Resilience analysis complete | Score: 18.8 | Category: KR¦T¦K
+.2026-03-01 13:13:20 | INFO     | resilience | Resilience analysis complete | Score: 90.4 | Category: ▄ST▄N
+...
+----------------------------------------------------------------------
+Ran 6 tests in 0.005s
+
+OK

@@ -151,6 +151,11 @@ class EarlyWarningSystem:
             self.WEIGHTS["clinical"]   * clinical_risk +
             self.WEIGHTS["behavioral"] * behavioral_risk
         )
+
+        # CRITICAL OVERRIDE: If hopelessness is reported, force score to at least CRITICAL threshold
+        if behavioral.hopelessness_reported:
+            composite = max(composite, self.THRESHOLDS[RiskLevel.CRITICAL])
+
         composite = round(min(composite, 1.0), 4)
 
         risk_level = self._classify(composite)
