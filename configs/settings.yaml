@@ -1,0 +1,63 @@
+# ============================================================
+# TEKNOFEST 2025 — Elite Command Center
+# System Configuration
+# ============================================================
+
+app:
+  name: "Elite Command Center"
+  version: "1.0.0"
+  debug: false
+  language: "tr"
+
+# --- Early Warning System Thresholds ---
+ews:
+  risk_thresholds:
+    low: 0.25
+    medium: 0.50
+    high: 0.75
+    critical: 0.90
+  notification:
+    email_alert_on_critical: true
+    log_all_events: true
+
+# --- Resilience Score Weights (PERMA-based) ---
+resilience:
+  weights:
+    phq9: 0.30        # Depression screening (PHQ-9)
+    gad7: 0.25        # Anxiety screening (GAD-7)
+    pss10: 0.20       # Perceived Stress Scale
+    cd_risc: 0.25     # Connor-Davidson Resilience Scale
+  normalization: "minmax"
+
+# --- NLP Engine ---
+nlp:
+  model: "savasy/bert-base-turkish-sentiment-cased"
+  fallback_model: "lexicon"
+  sentiment_labels: ["negative", "neutral", "positive"]
+  max_input_length: 512
+
+# --- Digital Therapeutics ---
+dtx:
+  session_duration_minutes: 10
+  exercises_per_session: 3
+  gamification:
+    points_per_session: 50
+    streak_bonus: 25
+    badge_thresholds:
+      bronze: 5
+      silver: 15
+      gold: 30
+
+# --- Data & Security ---
+data:
+  encryption: "AES-256"
+  anonymization: true
+  retention_days: 365
+  kvkk_compliant: true
+  hipaa_compliant: true
+
+# --- Logging ---
+logging:
+  level: "INFO"
+  file: "logs/app.log"
+  rotate: true

@@ -1,24 +1,31 @@
-# Core
+# ============================================================
+# TEKNOFEST 2025 — Elite Command Center
+# Python Dependencies
+# ============================================================
+
+# --- Core Data & ML ---
 numpy>=1.24.0
 pandas>=2.0.0
-scipy>=1.10.0
+scikit-learn>=1.3.0
 
-# AI/ML
-scikit-learn>=1.2.0
-tensorflow>=2.12.0
+# --- Deep Learning (optional — for transformer model) ---
 torch>=2.0.0
+tensorflow>=2.13.0
+transformers>=4.35.0      # HuggingFace — Turkish BERT
 
-# Data Visualization
+# --- NLP ---
+sentencepiece>=0.1.99     # Required for BERT tokenizers
+
+# --- Configuration ---
+pyyaml>=6.0               # YAML config loader
+
+# --- Visualization ---
 matplotlib>=3.7.0
 seaborn>=0.12.0
-plotly>=5.14.0
 
-# NLP (Often used in psychology tech)
-transformers>=4.28.0
-nltk>=3.8.0
-spacy>=3.5.0
+# --- Security & Crypto ---
+cryptography>=41.0.0      # AES-256 encryption utilities
 
-# Utilities
-pyyaml
-tqdm
-requests
+# --- Utilities ---
+tqdm>=4.65.0              # Progress bars
+python-dotenv>=1.0.0      # Environment variable management

@@ -1,174 +1,287 @@
-#  TEKNOFEST 2025: Psikolojide Teknolojik Uygulamalar
-##  Elite Command Center | Mental Health Innovation Hub
+<div align="center">
+
+# 🧠 TEKNOFEST 2025: Psikolojide Teknolojik Uygulamalar
+### Elite Command Center · Mental Health Innovation Hub
 
 ![Banner](banner.png)
 
 [![TEKNOFEST 2025](https://img.shields.io/badge/TEKNOFEST-2025-blue.svg?style=for-the-badge&logo=rocket)](https://teknofest.org)
-[![Category](https://img.shields.io/badge/Kategori-Psikolojide_Teknoloji-pink.svg?style=for-the-badge&logo=psychology)](https://teknofest.org)
-[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![Status](https://img.shields.io/badge/Status-In_Development-yellow.svg?style=for-the-badge)](https://github.com/bahattinyunus)
+[![Kategori](https://img.shields.io/badge/Kategori-Psikolojide_Teknoloji-pink.svg?style=for-the-badge)](https://teknofest.org)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB.svg?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Status](https://img.shields.io/badge/Status-Active_Development-brightgreen.svg?style=for-the-badge)](https://github.com/bahattinyunus)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
-[![Author](https://img.shields.io/badge/Author-Bahattin_Yunus_Çetin-orange.svg?style=for-the-badge)](https://github.com/bahattinyunus)
+
+[![Stars](https://img.shields.io/github/stars/bahattinyunus/teknofest_piskolojide_teknoloji?style=social)](https://github.com/bahattinyunus/teknofest_piskolojide_teknoloji)
+[![Forks](https://img.shields.io/github/forks/bahattinyunus/teknofest_piskolojide_teknoloji?style=social)](https://github.com/bahattinyunus/teknofest_piskolojide_teknoloji)
+
+</div>
 
 ---
 
-##  Mission Statement
-Bu proje, **TEKNOFEST 2025 Psikolojide Teknolojik Uygulamalar Yarışması** kapsamında geliştirilmektedir. Temel amacımız, modern yazılım mimarileri ve yapay zeka entegrasyonları ile ruh sağlığı alanında yenilikçi, erişilebilir ve ölçeklenebilir çözümler üretmektir.
+## 📌 Projenin Özü (Mission Statement)
+
+Bu proje, **TEKNOFEST 2025 Psikolojide Teknolojik Uygulamalar Yarışması** kapsamında geliştirilmektedir. Temel amacımız; modern yazılım mimarileri, yapay zeka ve kanıta dayalı psikolojik yaklaşımları harmanlayarak **ruh sağlığı alanında yenilikçi, erişilebilir ve ölçeklenebilir** dijital çözümler üretmektir.
 
 > [!IMPORTANT]
-> Projemiz, koruyucu ruh sağlığı odaklı olup, özellikle yüksek stresli çalışma ortamlarındaki bireylerin psikolojik dayanıklılığını artırmayı hedefler.
+> Projemiz; yüksek stres altındaki bireylerin **psikolojik dayanıklılığını** güçlendirmeyi, kriz öncesi riskleri **erken tespit** etmeyi ve bilimsel temelli **dijital terapötik müdahaleler** sunmayı hedefler.
 
 ---
 
-## 🏛️ System Architecture
+## 🔥 Neden Bu Proje? (Problem Statement)
 
-Projenin veri akışı ve modüler yapısı aşağıda görselleştirilmiştir:
+Dünya Sağlık Örgütü verilerine göre küresel çapta **1 milyar** kişi bir ruh sağlığı bozukluğundan etkilenmektedir. Türkiye'de ise işgücünün **%40'ından fazlası** mesleki tükenmişlik belirtileri sergilemektedir. Mevcut sistemlerin yetersizlikleri:
+
+| 🚫 Mevcut Sorun | ✅ Bizim Çözümümüz |
+| :--- | :--- |
+| Psikolog başına düşen hasta sayısı çok yüksek | **AI destekli erken uyarı** human-in-the-loop ile yük azaltır |
+| Standart anket yöntemleri statik ve geç kalır | **Gerçek zamanlı davranışsal patern** analizi |
+| Terapi hizmetlerine erişim coğrafi & maddi engel | **Web tabanlı, 7/24 erişilebilir** platform |
+| Kullanıcı uyumu (adherence) düşük | **Gamefikasyon & kişiselleştirilmiş DTx** modülleri |
+| Veri gizliliği endişeleri | **KVKK & HIPAA** uyumlu anonim işleme |
+
+---
+
+## 🏛️ Sistem Mimarisi (System Architecture)
 
 ```mermaid
-graph TD
-    A[Kullanıcı Girdisi / Psikometrik Veri] --> B{Data Pipeline}
-    B -->|Temizlenmiş Veri| C[AI Analiz Motoru]
-    C -->|Risk Tespiti| D[Early Warning System - EWS]
-    C -->|Gelişim Takibi| E[Digital Therapeutics - DTx]
-    D -->|Kritik| F[Uzman Müdahale Bildirimi]
-    E -->|İnteraktif| G[Kullanıcı Gelişim Paneli]
-    subgraph "Elite Command Center Backend"
-    B
-    C
+graph LR
+    subgraph INPUT ["📥 Veri Girişi"]
+        A1[📝 Anket & Öz-Değerlendirme]
+        A2[💬 Doğal Dil Girdisi]
+        A3[📊 Davranışsal Loglar]
     end
+
+    subgraph PIPELINE ["⚙️ Elite Command Center Backend"]
+        B[🔄 Data Pipeline\nTemizleme · Normaliz. · Anon.]
+        C[🤖 AI Analiz Motoru\nNLP · ML · Psikometri]
+    end
+
+    subgraph OUTPUT ["📤 Çıktı Sistemleri"]
+        D[🚨 Early Warning System\nRisk Skoru & Alarm]
+        E[💊 Digital Therapeutics\nBDT Egzersizleri]
+        F[📈 Gelişim Paneli\nProblerim Trendi]
+        G[👨‍⚕️ Uzman Bildirimi\nKritik Vakalar]
+    end
+
+    A1 & A2 & A3 --> B
+    B --> C
+    C -->|Yüksek Risk| D
+    C -->|Müdahale| E
+    C -->|Takip| F
+    D -->|Kritik| G
+
+    style PIPELINE fill:#1a1a2e,color:#e0e0ff
 ```
 
 ---
 
-##  Project Architecture & Modules
+## 🧩 Modüller ve Özellikler (Core Modules)
 
 ### 1. 🛡️ Koruyucu Ruh Sağlığı Birimi
-*   **Psikolojik Dayanıklılık Analizi:** Kullanıcıların stres seviyelerini, duygu durum değişimlerini ve adaptasyon kapasitelerini ölçümleyen dinamik makine öğrenmesi algoritmaları.
-*   **Early Warning System (EWS):** Doğal Dil İşleme (NLP) ve patern tanıma kullanarak risk potansiyeli taşıyan davranışsal eğilimlerin (tükenmişlik, anksiyete artışı vb.) önceden tespiti.
+> *"Fırtına gelmeden önce uyar."*
+
+- **Psikolojik Dayanıklılık Skoru:** Connor-Davidson Resilience Scale (CD-RISC) prensiplerini kullanan, sürekli güncellenen dinamik skor sistemi.
+- **Early Warning System (EWS):** NLP tabanlı duygu analizi + davranışsal patern tanıma ile tükenmişlik, akut stres ve anksiyete sinyallerinin **t-0 tespiti**.
+- **Risk Sınıflandırması:** `DÜŞÜK / ORTA / YÜKSEK / KRİTİK` 4 kademeli risk katmanı ile özelleştirilmiş müdahale protokolleri.
 
 ### 2. ⚡ Müdahale ve Destek Sistemi
-*   **HCI (Human-Computer Interaction):** Bilişsel yükü azaltan, odaklanmayı artıran ve terapi süreçlerini destekleyen premium cam (glassmorphism) arayüz mimarisi.
-*   **Digital Therapeutics (DTx):** Bilişsel Davranışçı Terapi (BDT) ilkelerine dayalı, interaktif ve kişiye özel dijital egzersiz modülleri.
+> *"Doğru anda, doğru müdahale."*
+
+- **Digital Therapeutics (DTx):** Bilişsel Davranışçı Terapi (BDT) protokollerine dayalı; günlük nefes egzersizleri, bilişsel yeniden yapılandırma ve mindfulness modülleri.
+- **HCI Tasarım Felsefesi:** Bilişsel yük teorisi (Cognitive Load Theory) prensipleriyle tasarlanmış, stres azaltan **Glassmorphism UI**.
+- **Gamefikasyon Motoru:** Kullanıcı uyumunu artırmak için rozet, seri ve ilerleme sistemi.
 
 ### 3. 📊 Bilimsel Ölçüm Laboratuvarı
-*   **Psychometric Data Analytics:** Psikometrik verilerin yüksek doğrulukla işlenmesi ve standartlaştırılması.
-*   **Digital Twin Evaluation:** Geleneksel psikolojik değerlendirme yöntemlerinin dijital ikizleri üzerinden simülasyonu ve validasyonu.
+> *"Veriye dayalı psikoloji, kör tahmin değil."*
+
+- **Psikometrik Veri Hattı:** PHQ-9, GAD-7, PSS-10 gibi klinik ölçeklerin dijital adaptasyonu ve otomatize puanlama.
+- **Digital Twin Değerlendirme:** Bireyin psikolojik profilinin zaman serisi analizi ile longitudinal takibi.
+- **Model Kalibrasyon Döngüsü:** A/B test altyapısı ile sürekli model iyileştirmesi.
 
 ---
 
 ## 🔬 Bilimsel Temeller (Scientific Foundation)
 
-Proje, sadece teknolojik bir araç değil, aynı zamanda kanıta dayalı psikolojik yaklaşımlar üzerine inşa edilmiştir:
-- **Bilişsel Davranışçı Terapi (BDT):** Modüllerin interaktif yapısı, düşünce-duygu-davranış döngüsünü normalize etmeye odaklanır.
-- **Pozitif Psikoloji:** Dayanıklılık (resilience) modülü, bireyin güçlü yanlarını keşfetmesine yönelik PERMA modeli prensiplerini kullanır.
-- **Veri Güvenliği:** Psikometrik veriler, HIPAA ve KVKK standartlarında şifrelenerek anonim bir şekilde işlenir.
+Proje, kanıta dayalı psikolojik çerçeveler üzerine inşa edilmiştir:
 
----
-
-## 🛠️ Technology Stack
-
-| Bileşen | Teknoloji / Kütüphane |
+| Teori / Model | Uygulama Alanı |
 | :--- | :--- |
-| **Core Logic** | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white) |
-| **AI/ML Engine** | ![Scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=flat&logo=scikit-learn&logoColor=white) ![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=flat&logo=tensorflow&logoColor=white) ![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=flat&logo=pytorch&logoColor=white) |
-| **UI/UX** | ![Glassmorphism](https://img.shields.io/badge/UI-Glassmorphism-blueviolet) ![CSS](https://img.shields.io/badge/CSS-1572B6?style=flat&logo=css3&logoColor=white) |
-| **Data Storage** | ![SQLite](https://img.shields.io/badge/SQLite-07405E?style=flat&logo=sqlite&logoColor=white) (Encrypted) |
+| **Bilişsel Davranışçı Terapi (BDT)** | DTx modüllerinin egzersiz içeriği |
+| **PERMA Modeli** (Pozitif Psikoloji) | Dayanıklılık skoru bileşenleri |
+| **Lazarus Stres-Başa Çıkma Modeli** | EWS'in risk faktörü ağırlıklandırması |
+| **Yerkes-Dodson Eğrisi** | Performans-stres ilişki modelleme |
+| **Psikolojik Güvenlik Teorisi** | UX tasarım prensipleri |
+
+> [!NOTE]
+> Tüm algoritmalar, DSM-5 ve ICD-11 tanı kriterleriyle uyumlu olacak şekilde tasarlanmıştır. Proje klinik bir tanı aracı değil, **koruyucu** ve **destekleyici** bir dijital sağlık platformudur.
 
 ---
 
-##  Repository Structure
+## 🛠️ Teknoloji Yığıtı (Technology Stack)
+
+| Katman | Teknoloji |
+| :--- | :--- |
+| **Core Logic** | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white) 3.10+ |
+| **NLP & Duygu Analizi** | ![HuggingFace](https://img.shields.io/badge/HuggingFace-FFD21E?style=flat&logo=huggingface&logoColor=black) Transformers · BERT-TR |
+| **ML Modelleme** | ![Scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat&logo=scikit-learn&logoColor=white) ![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=flat&logo=tensorflow&logoColor=white) ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white) |
+| **Veri İşleme** | ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white) ![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat&logo=numpy&logoColor=white) |
+| **Frontend / UI** | ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white) Glassmorphism |
+| **Güvenli Depolama** | ![SQLite](https://img.shields.io/badge/SQLite-07405E?style=flat&logo=sqlite&logoColor=white) AES-256 şifreleme |
+| **DevOps** | ![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white) |
+
+---
+
+## 📁 Depo Yapısı (Repository Structure)
+
 ```bash
-  configs/          # YAML/JSON tabanlı sistem konfigürasyonları
-  data/             # Psikometrik ham veri setleri ve eğitim verileri
-  docs/             # Bilimsel makaleler, şartname ve dokümantasyon
-  src/              # Kaynak Kod (Core Logic)
-     analysis/     # Psikometrik veri analizi modülleri
-     models/       # AI/ML Model implementasyonları (MLP, Random Forest vb.)
-     ui/           # Frontend / Interface bileşenleri
-     utils/        # Yardımcı fonksiyonlar ve loglama
-     main.py       # Elite Command Center ana giriş noktası
-  requirements.txt  # Proje bağımlılıkları
+teknofest_piskolojide_teknoloji/
+├── 📁 configs/           # YAML/JSON sistem konfigürasyonları (model parametreleri, eşik değerleri)
+├── 📁 data/
+│   ├── raw/              # Ham psikometrik veri setleri
+│   ├── processed/        # Temizlenmiş & normalleştirilmiş veriler
+│   └── models/           # Eğitilmiş model ağırlıkları (.pkl, .h5)
+├── 📁 docs/
+│   ├── research/         # Bilimsel referanslar ve makaleler
+│   └── api/              # API dokümantasyonu
+├── 📁 src/
+│   ├── 📁 analysis/      # Psikometrik veri analizi modülleri
+│   ├── 📁 models/        # AI/ML model implementasyonları
+│   │   ├── ews.py        # Early Warning System motoru
+│   │   ├── nlp_engine.py # NLP & duygu analizi
+│   │   └── resilience.py # Dayanıklılık skoru hesaplayıcı
+│   ├── 📁 dtx/           # Digital Therapeutics egzersiz motoru
+│   ├── 📁 ui/            # Frontend bileşenleri & Glassmorphism arayüz
+│   ├── 📁 utils/         # Yardımcı fonksiyonlar, loglama, şifreleme
+│   └── main.py           # 🚀 Elite Command Center — ana giriş noktası
+├── .gitignore
+├── CHANGELOG.md          # Sürüm değişiklik günlüğü
+├── CONTRIBUTING.md       # Katkı rehberi
+├── LICENSE               # MIT Lisansı
+└── requirements.txt      # Proje bağımlılıkları
 ```
 
 ---
 
 ## 🚀 Hızlı Başlangıç (Quick Start)
 
-### Gereksinimler
-- Python 3.10+
-- Virtualenv (Önerilen)
+### Ön Gereksinimler
+- Python **3.10+**
+- pip veya conda
+- Git
 
 ### Kurulum
-```bash
-# Depoyu klonlayın
-git clone https://github.com/bahattinyunus/teknofest_piskolojide_teknoloji.git
 
-# Proje dizinine gidin
+```bash
+# 1. Depoyu klonlayın
+git clone https://github.com/bahattinyunus/teknofest_piskolojide_teknoloji.git
 cd teknofest_piskolojide_teknoloji
 
-# Sanal ortam oluşturun ve aktif edin
+# 2. Sanal ortam oluşturun (önerilen)
 python -m venv venv
-source venv/bin/activate  # Windows için: venv\Scripts\activate
 
-# Bağımlılıkları yükleyin
+# Windows:
+venv\Scripts\activate
+# macOS/Linux:
+source venv/bin/activate
+
+# 3. Bağımlılıkları yükleyin
 pip install -r requirements.txt
 
-# Uygulamayı başlatın
+# 4. Uygulamayı başlatın
 python src/main.py
+```
+
+> [!TIP]
+> İlk çalıştırmada `configs/settings.yaml` dosyasından model eşik değerlerini ve bildirim tercihlerinizi düzenleyebilirsiniz.
+
+---
+
+## 🎯 Rakip Analizi (Competitor Analysis)
+
+Proje, TEKNOFEST kategorisindeki diğer projeler ve global ruh sağlığı uygulamaları analiz edilerek konumlandırılmıştır.
+
+### 📋 Referans Kaynaklar
+- 🔗 **[TEKNOFEST Şartnamesi 2025](https://www.teknofest.org/tr/competitions/competition/75)** — Koruyucu ruh sağlığı, VR, AI, Mobil odağı
+- 🔗 **[PsychoPy](https://github.com/psychopy/psychopy)** — Açık kaynak bilişsel deney platformu  
+- 🔗 **[GitHub/Psychology-Tools](https://github.com/topics/psychology)** — Global psikoloji teknoloji ekosistemi
+
+### ⚖️ Karşılaştırmalı Analiz
+
+| Özellik | Rakip Çözümler | **Elite Command Center** |
+| :--- | :---: | :---: |
+| Gerçek zamanlı risk tespiti | ❌ | ✅ |
+| Klinik ölçek entegrasyonu | Kısmi | ✅ Tam |
+| Kanıta dayalı DTx modülleri | ❌ | ✅ BDT tabanlı |
+| KVKK/HIPAA uyumu | ❌ | ✅ |
+| Gamefikasyon & kullanıcı uyumu | ❌ | ✅ |
+| Türkçe NLP desteği | ❌ | ✅ BERT-TR |
+| Donanım bağımlılığı | VR gerekli | ✅ Sıfır |
+
+---
+
+## 🗺️ Yol Haritası (Road Map)
+
+```mermaid
+gantt
+    title TEKNOFEST 2025 Proje Takvimi
+    dateFormat  YYYY-MM-DD
+    section Temel Altyapı
+    Proje Analizi & Kapsam        :done,    des1, 2025-01-01, 2025-01-20
+    Temel Mimari Tasarımı         :done,    des2, 2025-01-15, 2025-02-10
+    section Geliştirme
+    Veri Seti Hazırlığı           :active,  des3, 2025-02-10, 2025-03-15
+    AI Model Eğitimi              :         des4, 2025-03-01, 2025-04-30
+    DTx Modülleri                 :         des5, 2025-03-20, 2025-05-15
+    section Yarışma
+    Ön Değerlendirme Raporu       :crit,    des6, 2025-05-01, 2025-06-24
+    Proje Sunumu (Yarı Final)     :crit,    des7, 2025-07-07, 2025-07-14
+    TEKNOFEST İstanbul Final      :crit,    des8, 2025-09-01, 2025-09-15
 ```
 
 ---
 
-## 🎯 Rakip Analizi ve Pazar Araştırması (Competitor Analysis)
+## 🌟 Temel Özellikler Özeti
 
-Bu proje, **TEKNOFEST Psikolojide Teknolojik Uygulamalar** kategorisindeki diğer projeler ve global ölçekteki açık kaynaklı/ticari ruh sağlığı uygulamaları referans alınarak geliştirilmiştir. Aşağıda mevcut pazarın ve rakiplerin analizi, teknolojik altyapıları ve bizim projemizin öne çıkan farkları listelenmiştir.
+<div align="center">
 
-### 1. Referans Kaynaklar ve Şartnameler
-*   **[TEKNOFEST Psikolojide Teknolojik Uygulamalar Şartnamesi](https://www.teknofest.org/tr/competitions/competition/75)**: Yarışma, koruyucu ruh sağlığı, psikolojik dayanıklılığı artırma ve dijital terapi/ölçüm metodları (VR, AI, Mobil) geliştirmeyi hedefler. 2024 ve 2025 süreçlerinde yapay zeka entegrasyonu ön plandadır.
-*   **Açık Kaynaklı Psikometri Araçları**: Bilişsel psikoloji analizleri için kullanılan global standartlardaki bağımsız kütüphaneler (Örn: [PsychoPy](https://github.com/psychopy/psychopy), [GitHub/Psychology-Tools](https://github.com/topics/psychology)).
+| 🧠 AI-Powered | 🔒 Güvenli | 📱 Erişilebilir | 🎮 Gamified |
+|:---:|:---:|:---:|:---:|
+| NLP + ML modelleri | AES-256 şifreleme | Web tabanlı platform | Rozet & Seri sistemi |
+| Gerçek zamanlı analiz | KVKK / HIPAA uyum | 7/24 kullanılabilir | Kişiselleştirilmiş deneyim |
 
-### 2. Pazardaki Benzer Uygulamalar ve Yaklaşımlar
-Github ve pazar ekosistemindeki benzer çözümler çoğunlukla 3 ana başlıkta toplanmaktadır:
-1.  **AI Chatbot ve Duygu Tanıma:** Depresyon ve stres tespiti üzerine geliştirilen sohbet robotları *(Örn: MyMind benzeri açık kaynak terapi asistanları)*. Çoğunlukla sadece sentiment analizinde kalmakta, tıbbi geçerliliği es geçebilmektedir.
-2.  **Dijital Psikometrik Test Platformları:** IPIP-NEO-PI (Big Five) gibi kişilik testlerini dijitale aktaran projeler. Bunlar genellikle statik veri sunar, devamlı takip eksiği yaşarlar.
-3.  **Sanal Gerçeklik (VR) Destekli Terapiler:** Maruz bırakma (exposure) terapileri ve anksiyete yönetimi için başarılı ancak donanım maliyeti nedeniyle kitle erişiminden uzak projelerdir.
-
-### 3. Bizim Avantajlarımız (Elite Command Center Farkı)
-Rakiplerde tespit edilen *izole çalışma, maliyet/donanım bağımlılığı ve yetersiz bütüncül takip* problemlerine karşılık sistemimiz şu özelliklerle fark yaratır:
-*   **Bütüncül ve Dinamik Mimari:** Sadece bir test aracı veya chatbot olmak yerine; *Erken Uyarı Sistemi (EWS)* ve *Digital Therapeutics (DTx)* ile tam bir döngü sağlayan koruyucu ruh sağlığı altyapısı.
-*   **Modern Data Analytics Pipeline:** Geleneksel anket bazlı sistemlerin kısıtlarını aşmak için; Scikit-learn ve TensorFlow ile desteklenen sürekli, yüksek doğruluklu algoritmalar.
-*   **Premium HCI (İnsan-Bilgisayar Etkileşimi):** Sıkıcı ve yorucu hastane arayüzleri yerine, motivasyon artırıcı, stres azaltan *Glassmorphism UI* tasarımı.
+</div>
 
 ---
 
-##  Road Map
-- [x] Proje Analizi ve Kapsam Belirleme
-- [x] Temel Mimari Tasarımı
-- [ ] Veri Seti Hazırlığı
-- [ ] AI Model Eğitimi & Optimizasyonu
-- [ ] Yarışma Sunumu ve Prototip Yayını
+## 👨‍💻 Geliştirici (Author)
 
----
+<div align="center">
 
-##  Author: Bahattin Yunus Çetin
-**IT Architect | Tech Enthusiast | Visionary Developer**
+### Bahattin Yunus Çetin
+**IT Architect · AI Enthusiast · Mental Health Tech Pioneer**
 
-Trabzon'dan küresel sorunlara teknolojik çözümler üreten bir yazılım mimarı. Teknoloji ve insan psikolojisinin kesişim noktasında, toplumun refahını artıracak dijital araçlar geliştirmeye odaklanmıştır.
+*"Teknoloji ve insan psikolojisinin kesişim noktasında, toplumun refahını artıracak dijital araçlar geliştiriyorum."*
 
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/bahattinyunus)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/bahattinyunus)
 
----
-
-##  License & Contributions
-Bu proje **MIT Lisansı** altında lisanslanmıştır. Katkıda bulunmak isterseniz lütfen [CONTRIBUTING.md](CONTRIBUTING.md) dosyasını inceleyin.
+</div>
 
 ---
 
-> 'Technology is best when it brings people together and heals the mind
+## 📜 Lisans & Katkı
 
+Bu proje **MIT Lisansı** altındadır. Katkıda bulunmak için [CONTRIBUTING.md](CONTRIBUTING.md) dosyasını inceleyin.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Powered%20By-TEKNOFEST-red?style=for-the-badge&logo=rocket&logoColor=white" alt="TEKNOFEST Support">
-</p>
+---
 
+<div align="center">
+
+*"Teknolojiyi zihinleri iyileştirmek ve insanları bir araya getirmek için kullandığımızda en güçlü halini alır."*
+
+<br>
+
+[![Powered By TEKNOFEST](https://img.shields.io/badge/Powered%20By-TEKNOFEST%202025-red?style=for-the-badge&logo=rocket&logoColor=white)](https://teknofest.org)
+[![Made with ❤️](https://img.shields.io/badge/Made%20with-%E2%9D%A4%EF%B8%8F-pink?style=for-the-badge)](https://github.com/bahattinyunus)
+
+</div>
