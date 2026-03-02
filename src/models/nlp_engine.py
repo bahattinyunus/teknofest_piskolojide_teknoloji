@@ -43,6 +43,8 @@ NEGATIVE_KEYWORDS = [
     "öfkeli", "hayal kırıklığı", "değersiz", "başarısız", "rezil",
     "nefret", "acı", "ıstırap", "acımasız", "bunaldım", "dayanamıyorum",
     "anlamsız", "kötü", "berbat", "iğrenç", "dehşet", "korkunç",
+    "uykusuz", "iştahsız", "keyifsiz", "bitkin", "çökmüş", "yalnızlık",
+    "karanlık", "boşluk", "ölüm", "intihar", "zarar", "nefret",
 ]
 
 POSITIVE_KEYWORDS = [
@@ -50,11 +52,13 @@ POSITIVE_KEYWORDS = [
     "enerjik", "motive", "teşekkür", "sevgi", "minnettarlık", "güzel",
     "harika", "mükemmel", "olağanüstü", "verimli", "odaklı", "dinlendim",
     "rahatladım", "memnun", "tatmin", "coşkulu", "ilham", "keyif",
+    "iyiyim", "süper", "heyecanlı", "başarı", "seviniyorum", "güven",
 ]
 
 CRITICAL_FLAGS = [
     "intihar", "kendime zarar", "yaşamak istemiyorum", "ölmek istiyorum",
-    "hayatıma son", "bitirmek istiyorum",
+    "hayatıma son", "bitirmek istiyorum", "kendimi öldürmek", "ölsem daha iyi",
+    "canıma kıymak", "vazgeçtim hayattan",
 ]
 
 
@@ -144,8 +148,28 @@ class NLPEngine:
 
     def _analyze_lexicon(self, text: str) -> SentimentResult:
         words = re.findall(r'\b\w+\b', text.lower())
-        neg_hits = [w for w in words if w in NEGATIVE_KEYWORDS]
-        pos_hits = [w for w in words if w in POSITIVE_KEYWORDS]
+        neg_hits = []
+        pos_hits = []
+
+        # Simple negation handling
+        negators = ["değil", "yok", "hiç", "asla"]
+        
+        for i, word in enumerate(words):
+            is_negated = False
+            # Check previous word for negation
+            if i > 0 and words[i-1] in negators:
+                is_negated = True
+            
+            if word in NEGATIVE_KEYWORDS:
+                if is_negated:
+                    pos_hits.append(f"NOT_{word}") # Negated negative is positive
+                else:
+                    neg_hits.append(word)
+            elif word in POSITIVE_KEYWORDS:
+                if is_negated:
+                    neg_hits.append(f"NOT_{word}") # Negated positive is negative
+                else:
+                    pos_hits.append(word)
 
         total = len(neg_hits) + len(pos_hits) + 1e-9
         neg_score = len(neg_hits) / total

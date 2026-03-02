@@ -29,10 +29,13 @@ class RiskLevel(str, Enum):
 @dataclass
 class BehavioralFlags:
     """Behavioral signals that can elevate risk independently of scale scores."""
-    sleep_disruption:     bool = False   # Uyku bozukluğu bildirimi
-    social_withdrawal:    bool = False   # Sosyal geri çekilme
-    appetite_change:      bool = False   # Belirgin iştah değişimi
-    concentration_loss:   bool = False   # Konsantrasyon güçlüğü
+    sleep_disruption:      bool = False   # Uyku bozukluğu bildirimi
+    social_withdrawal:     bool = False   # Sosyal geri çekilme
+    appetite_change:       bool = False   # Belirgin iştah değişimi
+    concentration_loss:    bool = False   # Konsantrasyon güçlüğü
+    irritability:          bool = False   # Aşırı sinirlilik / Tepkisellik
+    physical_pain:         bool = False   # Nedensiz fiziksel ağrılar (psikosomatik)
+    social_media_overuse:  bool = False   # Aşırı sosyal medya kullanımı (kaçıngan davranış)
     hopelessness_reported: bool = False  # Umutsuzluk ifadesi (kritik sinyal)
 
 
@@ -130,8 +133,11 @@ class EarlyWarningSystem:
             behavioral.social_withdrawal,
             behavioral.appetite_change,
             behavioral.concentration_loss,
+            behavioral.irritability,
+            behavioral.physical_pain,
+            behavioral.social_media_overuse,
         ])
-        behavioral_risk = flag_count / 4
+        behavioral_risk = flag_count / 7
 
         if behavioral.hopelessness_reported:
             behavioral_risk = 1.0  # Immediate override to maximum
@@ -143,6 +149,12 @@ class EarlyWarningSystem:
             signals.append("Sosyal geri çekilme örüntüsü")
         if behavioral.concentration_loss:
             signals.append("Konsantrasyon güçlüğü")
+        if behavioral.irritability:
+            signals.append("Artan sinirlilik ve tepkisellik")
+        if behavioral.physical_pain:
+            signals.append("Psikosomatik ağrı belirtileri")
+        if behavioral.social_media_overuse:
+            signals.append("Kaçıngan sosyal medya kullanımı")
 
         # --- Composite risk score ---
         composite = (

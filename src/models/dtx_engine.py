@@ -146,6 +146,20 @@ MINDFULNESS_EXERCISES = [
         reflection_prompt="Bedeninizin hangi bölgesinde en fazla gerilim hissettiniz?",
         points=50,
     ),
+    DTxExercise(
+        exercise_type=ExerciseType.MINDFULNESS,
+        title="Öz-Şefkat Molası",
+        duration_minutes=5,
+        instructions=[
+            "Elinizi kalbinizin üzerine koyun.",
+            "Zorlandığınız bir anı düşünün.",
+            "Kendinize 'Bu bir acı anıdır' deyin.",
+            "Kendinize 'Acı çekmek hayatın bir parçasıdır' deyin.",
+            "Kendinize 'Kendime karşı nazik olayım' deyin.",
+        ],
+        reflection_prompt="Bu öz-şefkat ifadesi size nasıl hissettirdi?",
+        points=45,
+    ),
 ]
 
 GRATITUDE_EXERCISES = [
@@ -176,6 +190,29 @@ BEHAVIORAL_EXERCISES = [
         ],
         reflection_prompt="Bu küçük eylem sizi nasıl hissettirdi?",
         points=55,
+    ),
+    DTxExercise(
+        exercise_type=ExerciseType.BEHAVIORAL,
+        title="Değer Odaklı Adım",
+        duration_minutes=10,
+        instructions=[
+            "Sizin için önemli olan bir değeri seçin (ör: dürüstlük, yardımseverlik).",
+            "Bu değere uygun bugün yapabileceğiniz bir şey düşünün.",
+            "Bu eylemi yapmak için bir plan yapın.",
+        ],
+        reflection_prompt="Bu değer hayatınızda neden önemli?",
+        points=60,
+    ),
+    DTxExercise(
+        exercise_type=ExerciseType.BEHAVIORAL,
+        title="Sosyal Bağlantı Tıkırtısı",
+        duration_minutes=5,
+        instructions=[
+            "Sevdiğiniz birine kısa bir mesaj gönderin.",
+            "Ona sadece halini hatırını sorun veya teşekkür edin.",
+        ],
+        reflection_prompt="Bağlantı kurmak size ne hissettirdi?",
+        points=50,
     ),
 ]
 
@@ -231,10 +268,13 @@ class DTxEngine:
         available = {et: [e for e in ALL_EXERCISES if e.exercise_type == et] for et in priority_types}
 
         for et in priority_types:
-            if available[et] and len(selected) < num_exercises:
-                selected.append(random.choice(available[et]))
+            type_pool = available.get(et, [])
+            if type_pool and len(selected) < num_exercises:
+                # Weighted shuffle to avoid repeats if possible
+                random.shuffle(type_pool)
+                selected.append(type_pool[0])
 
-        # Fill remaining slots with any exercise if needed
+        # Fill remaining slots from ALL_EXERCISES, avoiding duplicates
         while len(selected) < num_exercises:
             pool = [e for e in ALL_EXERCISES if e not in selected]
             if not pool:

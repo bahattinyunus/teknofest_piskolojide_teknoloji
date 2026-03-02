@@ -205,6 +205,21 @@ Proje, TEKNOFEST kategorisindeki diğer projeler ve global ruh sağlığı uygul
 - 🔗 **[PsychoPy](https://github.com/psychopy/psychopy)** — Açık kaynak bilişsel deney platformu  
 - 🔗 **[GitHub/Psychology-Tools](https://github.com/topics/psychology)** — Global psikoloji teknoloji ekosistemi
 
+### 🏆 TEKNOFEST Ekosistemi (Öne Çıkanlar)
+Yarışma kapsamında geliştirilen ve benzer vizyona sahip bazı projeler:
+
+- **[VerseTech](https://teknofest.org/tr/competitions/competition/75)** (2024 Birincisi): VR/AR tabanlı psikolojik dayanıklılık çözümleri.
+- **[PsiKod](https://teknofest.org/tr/competitions/competition/75)** (2024 İkincisi): Çocuk ve ergenler için oyunlaştırma tabanlı mobil terapi (MOTO Oyun) ve uzman takip paneli.
+- **[EVA PSY](https://teknofest.org/tr/competitions/competition/75)** (2023 Birincisi): Müdahale ve erişilebilirlik odaklı dijital sağlık platformu.
+
+### 🌐 Global Açık Kaynak Projeler & Kaynak Kodlar
+Alanımızdaki gelişmiş açık kaynaklı implementasyonlar:
+
+- 💻 **[MindAid](https://github.com/ajianaz/mindaid)**: Empatik yapay zeka asistanı ve duygu analizi motoru.
+- 💻 **[Quirk](https://github.com/cog-health/quirk)**: Bilişsel Davranışçı Terapi (BDT) tabanlı düşünce kaydı uygulaması.
+- 💻 **[EVA-Mind](https://github.com/joserfjr/eva-mind)**: Psikoloji ve yapay zekayı birleştiren "Sanal Destek Varlığı" mimarisi.
+- 💻 **[MindHaven](https://github.com/AminaAsif9/MindHaven)**: Duygu takibi ve stres yönetimi üzerine kurulu AI destekli yardımcı.
+
 ### ⚖️ Karşılaştırmalı Analiz
 
 | Özellik | Rakip Çözümler | **Elite Command Center** |
@@ -215,7 +230,7 @@ Proje, TEKNOFEST kategorisindeki diğer projeler ve global ruh sağlığı uygul
 | KVKK/HIPAA uyumu | ❌ | ✅ |
 | Gamefikasyon & kullanıcı uyumu | ❌ | ✅ |
 | Türkçe NLP desteği | ❌ | ✅ BERT-TR |
-| Donanım bağımlılığı | VR gerekli | ✅ Sıfır |
+| Donanım bağımlılığı | VR/Donanım odaklı | ✅ Sıfır Bağımlılık |
 
 ---
 
